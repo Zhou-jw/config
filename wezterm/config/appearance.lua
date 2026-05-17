@@ -1,6 +1,7 @@
 -- local constants = require("config.constants")
 
 local M = {}
+local wezterm = require("wezterm")
 
 function M.apply(config)
     -- 配色方案（默认）
@@ -13,6 +14,7 @@ function M.apply(config)
 
     -- 窗口透明度
     config.window_background_opacity = 1
+    config.font = wezterm.font('Hack Nerd Font Mono')
 
     -- 背景图片（如需启用请取消注释）
     -- config.window_background_image = constants.CONFIG_DIR .. "/images/4.jpg"

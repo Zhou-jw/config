@@ -6,7 +6,7 @@ function M.apply(config)
     local act = wezterm.action
 
     -- 禁用默认快捷键
-    config.disable_default_key_bindings = true
+    -- config.disable_default_key_bindings = false
 
     -- Leader 键
     config.leader = {
@@ -47,9 +47,10 @@ function M.apply(config)
         { key = "w",          mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = true }) },
 
         -- 复制：Ctrl+C（有选中内容时复制，无选中时正常发送中断信号）
-        { key = "c",          mods = "CTRL",       action = act.CopyTo("ClipboardAndPrimarySelection") },
+        -- { key = "c",          mods = "CTRL",       action = act.CopyTo("ClipboardAndPrimarySelection") },
+        -- { key = "c", mods = "CTRL", action = act.CopyOrSendInterrupt({ select_all = false }) },
         -- 粘贴：Ctrl+V
-        { key = "v",          mods = "CTRL",       action = act.PasteFrom("Clipboard") },
+        -- { key = "v",          mods = "CTRL",       action = act.PasteFrom("Clipboard") },
 
         -- ========== 搜索与命令 ==========
         { key = "f",          mods = "CTRL",       action = act.Search("CurrentSelectionOrEmptyString") },
