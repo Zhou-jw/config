@@ -56,7 +56,7 @@ function M.apply(config)
             table.insert(launch_menu, {
                 label = "WSL: " .. distro,
                 -- 【关键修复】参数必须分开写！
-                args = { "wsl.exe", "-d", distro },
+                args = { "wsl.exe", "-d", distro},
             })
         end
     end
