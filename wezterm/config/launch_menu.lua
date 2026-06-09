@@ -36,13 +36,31 @@ local function get_wsl_distributions()
     return distros
 end
 
+local function has_fish()
+  -- io.open 不依赖 PATH，直接查文件
+  local f = io.open("/opt/homebrew/bin/fish", "r")
+  if f then f:close(); return true end
+  -- Intel Mac 兜底
+  f = io.open("/usr/local/bin/fish", "r")
+  if f then f:close(); return true end
+  return false
+end
+
+if wezterm.target_triple:match("darwin") or utils.is_windows == nil then
+  -- 你在非 windows 分支
+end
+
+
+
 function M.apply(config)
     if utils.is_windows() then
         config.default_prog = { "pwsh", "-NoLogo" }
     else
-        config.default_prog = utils.unix_command_exists("zsh")
-            and { "zsh", "-i" }
-            or { "bash", "-i" }
+        if has_fish() then
+            config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
+        else
+            config.default_prog = { "/bin/bash", "-i" }
+        end
     end
 
     local launch_menu = {
