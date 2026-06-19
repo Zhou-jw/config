@@ -66,6 +66,15 @@ function M.apply(config)
 
     config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
     config.integrated_title_button_style = "Gnome"
+
+    config.font = wezterm.font_with_fallback({
+        'Maple Mono Normal NL NF CN',
+        'Hack Nerd Font Mono',
+        -- 'JetBrains Mono',
+        -- 'Cascadia Code',
+    })
+    config.font_size = 12.0
+    -- config.line_height = 1.1
 end
 
 return M
