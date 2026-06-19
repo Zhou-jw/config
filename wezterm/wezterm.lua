@@ -7,7 +7,6 @@ local modules = {
     "config.appearance",
     "config.launch_menu",
     "config.mouse",
-    "config.tab_bar",
     "config.keybindings",
 }
 
