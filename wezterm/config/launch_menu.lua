@@ -57,11 +57,12 @@ function M.apply(config)
 
     -- ===== Windows =====
     if utils.is_windows() then
-        config.default_prog = { "pwsh", "-NoLogo" }
+        config.default_prog = { "nu"}
 
         launch_menu = {
             { label = "PowerShell", args = { "powershell.exe", "-NoLogo" } },
             { label = "Pwsh",       args = { "pwsh.exe", "-NoLogo" } },
+            { label = "NuShell",       args = { "nu.exe"} },
         }
 
         -- 改用封装的 get_wsl_distributions 函数

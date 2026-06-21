@@ -33,6 +33,10 @@ function M.apply(config)
             { Text = string.format(" %d: %s ", tab.tab_index + 1, tab.active_pane.title) },
         }
     end)
+
+    -- 滚动条设置
+    config.enable_scroll_bar = true
+    -- config.colors.scrollbar_thumb = "#4a4f5c"
 end
 
 return M
