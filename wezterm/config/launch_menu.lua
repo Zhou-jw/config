@@ -57,7 +57,7 @@ function M.apply(config)
 
     -- ===== Windows =====
     if utils.is_windows() then
-        config.default_prog = { "nu"}
+        config.default_prog = { "pwsh.exe", "-NoLogo" }
 
         launch_menu = {
             { label = "PowerShell", args = { "powershell.exe", "-NoLogo" } },
